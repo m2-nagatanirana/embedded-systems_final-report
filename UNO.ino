@@ -22,7 +22,6 @@ int s;  //押されたボタンの値
 void loop() {
   while (Serial.available()) {
     byte Sum = (byte)Serial.read();
-    Serial.println(Sum);
     if (Sum >= 170) {  //投入金額が170円以上のとき
       if (digitalRead(BUTTON_PIN_RED) == LOW) {
         s = 1;  //red
