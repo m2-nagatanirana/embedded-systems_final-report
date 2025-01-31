@@ -3,8 +3,8 @@ Servo myservo1;
 Servo myservo2;
 Servo myservo3;
 
-int red = 130; //blueの料金設定
-int blue = 170; //redの料金設定
+int blue = 130; //blueの料金設定
+int red = 170; //redの料金設定
 
 int temt6000Pin1 = 4;  //500yen
 int temt6000Pin2 = 6;  //100yen
@@ -210,7 +210,7 @@ void loop() {
   while (Serial.available()) {
     byte inChar = (byte)Serial.read();
     if (inChar == 1) { //redのスイッチが押されたとき
-      int oturi1 = sum - 170;
+      int oturi1 = sum - red;
       int hyaku1 = oturi1 / 100;
       int gojyu1 = (oturi1 - (100 * hyaku1)) / 50;
       int jyu1 = (oturi1 - ((100 * hyaku1) + 50 * gojyu1)) / 10;
@@ -252,7 +252,7 @@ void loop() {
       coinCount4 = 0;
     }
     else if (inChar == 2) { //blueのスイッチが押されたとき
-      int oturi2 = sum - 130;
+      int oturi2 = sum - blue;
       int hyaku2 = oturi2 / 100;
       int gojyu2 = (oturi2 - (100 * hyaku2)) / 50;
       int jyu2 = (oturi2 - ((100 * hyaku2) + 50 * gojyu2)) / 10;
